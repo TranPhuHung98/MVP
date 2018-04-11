@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+        <data>
+            <variable
+                name="user"
+                type="com.example.minht.mvvm.Model.User"/>
+            <variable
+                name="PresenterLogin"
+                type="com.example.minht.mvvm.Presenter.PresenterLogin.PresenterLogin"/>
+        </data>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.example.minht.mvvm.View.Login.ActivityLogin">
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:textSize="100px"
+                android:gravity="center"
+                android:text="Login"
+                android:layout_width="match_parent"
+                android:layout_height="200px" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="50px"
+                    android:text="@string/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80px" />
+                <EditText
+                    android:text="@={user.email}"
+                    android:layout_marginLeft="50px"
+                    android:layout_width="500px"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="40px"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="50px"
+                    android:text="@string/password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80px" />
+                <EditText
+                    android:text="@{user.password}"
+                    android:layout_width="500px"
+                    android:inputType="textPassword"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+           <Button
+               android:text="Login"
+               android:onClick="@{()->PresenterLogin.checkLogin(user.email,user.password)}"
+               android:layout_gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+        </LinearLayout>
+</layout>
